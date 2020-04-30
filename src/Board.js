@@ -58,25 +58,13 @@ class Board extends Component {
         board[y][x] = !board[y][x];
       }
 
-      if (x - 1 >= 0) {
-        board[y][x - 1] = !board[y][x - 1]
-      }
-
-      if (x + 1 < ncols){
-        board[y][x + 1] = !board[y][x + 1]
-      }
-
-      if (y - 1 >= 0) {
-        board[y - 1][x] = !board[y - 1][x]
-      }
-
-      if (y + 1 < nrows) {
-        board[y + 1][x] = !board[y + 1][x]
-      }
-
     }
 
     flipCell(y, x)
+    flipCell(y + 1, x)
+    flipCell(y - 1, x)
+    flipCell(y, x - 1)
+    flipCell(y, x + 1)
 
     this.setState({board, hasWon: this.calculateWinner()});
   }
